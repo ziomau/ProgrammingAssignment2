@@ -1,4 +1,4 @@
-## Coursera "R Programming" course (rprog-031), Assignment #2, August 2015
+## Coursera "R Programming" course (rprog-031), Assignment #2, August 2015.
 ##
 ## The purpose of the following R code is to cache the inverse of a matrix
 ## so to avoid unnecessary time-consuming computations.
@@ -11,7 +11,7 @@
 ##  'testCacheSolve()': a simple function for testing purposes.
 
 ## The 'makeCacheMatrix()' function creates a special "matrix",
-## which is really a list containing proper local functions to:
+## which is actually a list containing proper local functions to:
 ##  'set()': Set the data of the matrix.
 ##  'get()': Get the data of the matrix.
 ##  'setinverse()': Set the data of the inverse of the matrix.
