@@ -1,4 +1,4 @@
-## Coursera "R Programming" course (rprog-031), Assignment #2, August 2015.
+## Coursera "R Programming" course (rprog-031), Assignment #rm (2, August 2015.
 ##
 ## The purpose of the following R code is to cache the inverse of a matrix
 ## so to avoid unnecessary time-consuming computations.
@@ -101,27 +101,50 @@ cacheSolve <- function(sm, ...) {
 ## Simple function for testing purposes only.
 ## It is not part of the course assignment.
 testCacheSolve <- function() {
-  # Creates a simple invertible matrix and prints it.
-  # testMatrix <- rbind(c(4, 3), c(3, 2))
-  testMatrix <- rbind(c(1, 3, 3), c(1, 4, 3), c(1, 3, 4))
-  message("Test matrix:")
-  print(testMatrix)
+  message("--- Test function - Begin")
+
+  # Creates two simple invertible matrixes and prints them.
+  testMatrix1 <- rbind(c(4, 3), c(3, 2))
+  testMatrix2 <- rbind(c(1, 3, 3), c(1, 4, 3), c(1, 3, 4))
+  message("Test matrix 1:")
+  print(testMatrix1)
   readline(prompt="Press [enter] to continue")
 
-  # Initializes the special data structure with the test matrix.
-  cacheMatrix <- makeCacheMatrix(testMatrix)
+  message("Test matrix 2:")
+  print(testMatrix2)
+  readline(prompt="Press [enter] to continue")
 
-  # Calculates the inverse of the test matrix and prints the results.
+  # Initializes the special data structure with the first test matrix.
+  cacheMatrix <- makeCacheMatrix(testMatrix1)
+
+  # Calculates the inverse of the first test matrix and prints the result.
   # In this case, the "Calculating data" message should be printed because
   # this is the first time the inverse is calculated.
   temp <- cacheSolve(cacheMatrix)
   print(temp)
   readline(prompt="Press [enter] to continue")
 
-  # Calculates again the inverse of the test matrix and prints the results.
+  # Calculates again the inverse of the first test matrix and prints the results.
   # In this case, the "Getting cached data" message should be printed because
   # this is the second time the inverse is calculated on the same matrix,
   # therefore cached data should be available.
   temp <- cacheSolve(cacheMatrix)
   print(temp)
+  readline(prompt="Press [enter] to continue")
+
+  # Repeats the same steps with the second test matrix.
+  # In this case, since the special data structure is initialized with a new
+  # matrix, at the first calculation of the inverse the "Calculating data"
+  # message should be printed, and at the subsequent attempt the "Getting
+  # cached data" message should be printed.
+  cacheMatrix <- makeCacheMatrix(testMatrix2)
+
+  temp <- cacheSolve(cacheMatrix)
+  print(temp)
+  readline(prompt="Press [enter] to continue")
+
+  temp <- cacheSolve(cacheMatrix)
+  print(temp)
+
+  message("--- Test function - End")
 }
